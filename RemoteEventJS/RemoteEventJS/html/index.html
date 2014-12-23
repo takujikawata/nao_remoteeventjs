@@ -13,7 +13,6 @@ function doConnect()
     session = new QiSession(document.js.ipaddress.value);
     session.service("ALMemory").done(function (ALMemory) {
       ALMemory.subscriber("WordRecognized").done(function (subscriber) {
-        // subscriber.signal is a signal associated to "FrontTactilTouched"
         subscriber.signal.connect(function (words) {
           document.js.wordlog.value = document.js.wordlog.value + "\n" + words;
         });
